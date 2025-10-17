@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
@@ -37,7 +39,7 @@ class _CustomButtonState extends State<CustomButton> {
           color: _isPressed
               ? widget.backgroundColor.withOpacity(0.5)
               : widget.backgroundColor,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(14),
           boxShadow: widget.hasShadow && !_isPressed
               ? [
                   BoxShadow(

@@ -7,6 +7,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(title: const Text('Sketch AR Home')),
       body: Padding(
@@ -46,6 +48,35 @@ class HomeScreen extends StatelessWidget {
               onTap: () {},
               backgroundColor: AppColors.primary30,
               textColor: AppColors.primary,
+            ),
+            const SizedBox(height: 30),
+            Container(
+              height: height * 0.39,
+
+              width: width * 0.9,
+              // margin: const EdgeInsets.only(left: 20, right: 20),
+              // padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: AppColors.primary.withOpacity(.9),
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white.withOpacity(0.1),
+                    blurRadius: 4,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: Center(
+                child: const Text(
+                  'Ad Banner',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

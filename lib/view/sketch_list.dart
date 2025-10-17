@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sketch_ar/core/media_list.dart';
+import 'package:sketch_ar/view/sketch_screen.dart';
+import 'package:sketch_ar/widgets/sketch_widget.dart';
 
 class SketchGridPage extends StatelessWidget {
   final MediaList mediaList = MediaList();
@@ -10,9 +12,17 @@ class SketchGridPage extends StatelessWidget {
     final images = mediaList.allImages;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Sketch Category')),
+      appBar: AppBar(
+        title: const Text('Sketch Category'),
+        centerTitle: true,
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/home');
+          },
+        ),
+      ),
       body: GridView.builder(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 8,
@@ -20,18 +30,16 @@ class SketchGridPage extends StatelessWidget {
         ),
         itemCount: images.length,
         itemBuilder: (context, index) {
-          return GestureDetector(
+          final imagePath = images[index];
+
+          return SketchWidget(
+            key: ValueKey(imagePath),
+            imagePath: imagePath,
             onTap: () {
-              debugPrint('Selected: ${images[index]}');
+              MaterialPageRoute(
+                builder: (context) => FinalSketchScreen(imagePath: imagePath),
+              );
             },
-            child: Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.grey[200],
-              ),
-              child: Image.asset(images[index], fit: BoxFit.cover),
-            ),
           );
         },
       ),
