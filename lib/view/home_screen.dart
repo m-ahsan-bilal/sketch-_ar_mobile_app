@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+import 'package:sketch_ar/core/app_colors.dart';
+import 'package:sketch_ar/widgets/my_button.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Sketch AR Home')),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Trace your sketches with AR",
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 40),
+            Text(
+              'Select a sketch from our categories or import your own from the gallery.',
+              style: TextStyle(fontSize: 16, color: Colors.black),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 40),
+            CustomButton(
+              title: 'Choose Sketch From Categories',
+
+              textColor: Colors.white,
+              backgroundColor: AppColors.primary,
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/sketch_list');
+              },
+            ),
+            const SizedBox(height: 20),
+            CustomButton(
+              title: 'Import from Gallery',
+
+              onTap: () {},
+              backgroundColor: AppColors.primary30,
+              textColor: AppColors.primary,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
