@@ -21,28 +21,46 @@ class SketchGridPage extends StatelessWidget {
           },
         ),
       ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(10),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
-        ),
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          final imagePath = images[index];
-
-          return SketchWidget(
-            key: ValueKey(imagePath),
-            imagePath: imagePath,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50),
+          child: SketchWidget(
+            imagePath: "assets/models/chef boy.png",
             onTap: () {
-              MaterialPageRoute(
-                builder: (context) => FinalSketchScreen(imagePath: imagePath),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FinalSketchScreen(
+                    imagePath: "assets/models/chef boy.png",
+                  ),
+                ),
               );
             },
-          );
-        },
+          ),
+        ),
       ),
+      // body: GridView.builder(
+      //   padding: const EdgeInsets.all(10),
+      //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      //     crossAxisCount: 2,
+      //     crossAxisSpacing: 8,
+      //     mainAxisSpacing: 8,
+      //   ),
+      //   itemCount: images.length,
+      //   itemBuilder: (context, index) {
+      //     final imagePath = images[index];
+
+      //     return SketchWidget(
+      //       key: ValueKey(imagePath),
+      //       imagePath: imagePath,
+      //       onTap: () {
+      //         MaterialPageRoute(
+      //           builder: (context) => FinalSketchScreen(imagePath: imagePath),
+      //         );
+      //       },
+      //     );
+      //   },
+      // ),
     );
   }
 }

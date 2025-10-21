@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,7 @@ class _FinalSketchScreenState extends State<FinalSketchScreen> {
   void initState() {
     super.initState();
     _initCamera();
-    precacheImage(AssetImage(widget.imagePath), context);
+    // precacheImage(AssetImage(widget.imagePath), context);
   }
 
   Future<void> _initCamera() async {
@@ -52,7 +54,7 @@ class _FinalSketchScreenState extends State<FinalSketchScreen> {
           onPressed: () {
             Navigator.pushReplacementNamed(context, '/sketch_list');
           },
-          icon: Icon(Icons.add_ic_call_rounded),
+          icon: Icon(Icons.arrow_back_rounded),
         ),
       ),
       body: Stack(
@@ -83,23 +85,23 @@ class _FinalSketchScreenState extends State<FinalSketchScreen> {
           ),
 
           /// 🔙 Top App Bar
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.black.withOpacity(0.4),
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
-          ),
+          // SafeArea(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(12.0),
+          //     child: Row(
+          //       children: [
+          //         CircleAvatar(
+          //           backgroundColor: Colors.black.withOpacity(0.4),
+          //           child: IconButton(
+          //             icon: const Icon(Icons.arrow_back, color: Colors.white),
+          //             onPressed: () => Navigator.pop(context),
+          //           ),
+          //         ),
+          //         const Spacer(),
+          //       ],
+          //     ),
+          //   ),
+          // ),
 
           /// ⚡ Controls (bottom)
           Align(
@@ -147,8 +149,8 @@ class _FinalSketchScreenState extends State<FinalSketchScreen> {
                     onChanged: (value) {
                       setState(() => _scale = value);
                     },
-                    min: 0.5,
-                    max: 3.0,
+                    min: 1.0,
+                    max: 2.0,
                     activeColor: Colors.white,
                   ),
                 ],
