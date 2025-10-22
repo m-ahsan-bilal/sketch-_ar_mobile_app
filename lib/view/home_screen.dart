@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:sketch_ar/core/app_colors.dart';
 import 'package:sketch_ar/widgets/my_button.dart';

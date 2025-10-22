@@ -4,9 +4,15 @@ import 'package:sketch_ar/view/home_screen.dart';
 import 'package:sketch_ar/view/sketch_list.dart';
 import 'package:sketch_ar/view/sketch_screen.dart';
 import 'package:sketch_ar/view/splash_screen.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://funkqyfjkejaskgvqxqr.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bmtxeWZqa2VqYXNrZ3ZxeHFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExMjY1MzcsImV4cCI6MjA3NjcwMjUzN30.BO-nNy5s1bnVhHIFsXK3Un7KWKxje_VS-1EA8ETQ6DE',
+  );
   runApp(MyApp());
 }
 
