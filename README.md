@@ -16,7 +16,7 @@ Perfect for artists, learners, and creative souls 💫
 
 ## 📲 Download APK
 
-👉 [**Download Latest APK**](./build/app/outputs/flutter-apk/app-debug.apk)
+👉 [**Download Latest APK**](./build/app/outputs/flutter-apk/app-release.apk)
 
 > *(If you're viewing this on GitHub, click the link to directly download the debug build.)*
 
